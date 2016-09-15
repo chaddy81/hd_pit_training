@@ -73,6 +73,8 @@ let Exit = React.createClass({
     if(e.target.className == 'ok') {
       document.getElementById('exit-alert').style.display = 'none';
       hashHistory.push('/');
+    } else if(e.target.className == 'cancel') {
+      document.getElementById('exit-alert').style.display = 'none';
     } else {
       document.getElementById('exit-alert').style.display = 'block';
     }
@@ -99,7 +101,8 @@ let Exit = React.createClass({
         <div class="alert" id="exit-alert">
             <img src="images/alert.png" />
             <p>Are you sure you want to leave? If you leave now, your information may not be saved and you'll have to restart the course</p>
-            <button class="ok">Ok</button>
+            <button class="ok">Leave</button>
+            <button class="cancel">Cancel</button>
         </div>
       </span>
     )
