@@ -1,0 +1,169 @@
+body {
+  background: #282828;
+  margin: 0;
+  padding: 0; }
+
+header {
+  background: #e05902;
+  box-shadow: 0 0 27px 13px rgba(0, 0, 0, 0.73);
+  color: #fff;
+  height: 97px;
+  left: 50%;
+  max-width: 1366px;
+  position: relative;
+  transform: translateX(-50%);
+  z-index: 10; }
+
+.logo {
+  background-image: url("../images/sprites.png");
+  background-position: 0px 0px;
+  display: inline-block;
+  height: 76px;
+  text-indent: -999em;
+  vertical-align: middle;
+  width: 177px; }
+
+.container {
+  left: 50%;
+  max-width: 950px;
+  position: relative;
+  transform: translateX(-50%);
+  width: 100%; }
+
+nav {
+  display: inline-block;
+  height: 100%;
+  margin-left: 30px;
+  vertical-align: middle; }
+  nav ul {
+    margin: 0;
+    padding: 0;
+    position: relative; }
+    nav ul li {
+      display: inline-block;
+      line-height: 87px;
+      padding: 10px 40px 0; }
+    nav ul li:hover {
+      background: #f5ab0b;
+      cursor: pointer; }
+    nav ul li:hover > .sub-nav {
+      display: block; }
+  nav .sub-nav {
+    background: #363636;
+    display: none;
+    left: 0;
+    line-height: normal;
+    padding: 40px 40px 30px;
+    top: 97px;
+    position: absolute;
+    width: 435px; }
+    nav .sub-nav li {
+      line-height: normal;
+      padding: 0;
+      position: relative;
+      width: 100%; }
+      nav .sub-nav li:hover {
+        background: none; }
+    nav .sub-nav a {
+      color: #ebebeb;
+      font-size: 17px;
+      font-family: 'PT Sans';
+      line-height: 60px; }
+    nav .sub-nav img {
+      height: 36px;
+      position: absolute;
+      right: 0;
+      top: 50%;
+      transform: translateY(-50%);
+      width: 36px; }
+  nav a {
+    color: #fff;
+    display: inline-block;
+    font-family: 'PT Sans';
+    font-size: 24px;
+    line-height: 1;
+    text-decoration: none;
+    text-transform: uppercase; }
+
+.exit {
+  border-left: 1px solid #ea8e53;
+  color: #fff;
+  float: right;
+  font-family: 'PT Sans';
+  font-size: 24px;
+  line-height: 97px;
+  padding: 0 0 0 35px;
+  text-decoration: none; }
+  .exit:after {
+    background-image: url("../images/sprites.png");
+    background-position: -79px -122px;
+    content: '';
+    display: inline-block;
+    height: 23px;
+    margin: -5px 0 0 25px;
+    vertical-align: middle;
+    width: 19px; }
+
+main {
+  background: url("../images/background.jpg") top left no-repeat;
+  background-size: cover;
+  box-shadow: 0 0 27px 13px rgba(0, 0, 0, 0.73);
+  height: 100%;
+  left: 50%;
+  max-height: 767px;
+  max-width: 1366px;
+  min-height: 670px;
+  position: relative;
+  transform: translateX(-50%); }
+
+.video-container {
+  background: #363636;
+  height: 100%;
+  left: 50%;
+  margin: 70px 0;
+  max-height: 505px;
+  max-width: 795px;
+  position: relative;
+  transform: translateX(-50%);
+  width: 100%; }
+  .video-container h3 {
+    color: #fff;
+    font-size: 18px;
+    line-height: 56px;
+    margin: 0;
+    padding: 0 20px; }
+  .video-container video {
+    width: 100%; }
+
+.alert {
+  display: none;
+  font-family: 'PT Sans';
+  background-color: rgba(255, 255, 255, 0.9);
+  background: rgba(255, 255, 255, 0.9);
+  width: 100%;
+  margin: 0 auto;
+  max-width: 530px;
+  text-align: center;
+  padding: 40px;
+  font-size: 24px;
+  color: #363636;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%); }
+  .alert#exit-alert {
+    top: 200px;
+    transform: translateX(-50%); }
+  .alert p {
+    margin-top: 20px; }
+  .alert button {
+    border: none;
+    color: white;
+    background-color: #f68002;
+    padding: 10px 20px;
+    font-size: 24px;
+    margin: 20px 10px 0; }
+  .alert button:hover {
+    background-color: #e05902; }
+
+/*# sourceMappingURL=style.css.map */
