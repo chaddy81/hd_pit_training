@@ -28,7 +28,7 @@ header {
 
 .container {
   left: 50%;
-  max-width: 950px;
+  max-width: 1000px;
   position: relative;
   transform: translateX(-50%);
   width: 100%;
@@ -117,8 +117,13 @@ nav {
   font-family: 'PT Sans';
   font-size: 24px;
   line-height: 97px;
-  padding: 0 0 0 35px;
+  padding: 0 35px 0;
   text-decoration: none;
+
+  &:hover {
+    background: #f5ab0b;
+    cursor: pointer;
+  }
 
   &:after {
     background-image: url('../images/sprites.png');
@@ -147,6 +152,7 @@ main {
 
 .video-container {
   background: #363636;
+  font-family: 'PT Sans';
   height: 100%;
   left: 50%;
   margin: 70px 0;
