@@ -40,13 +40,15 @@ nav {
     padding: 0;
     position: relative; }
     nav ul li {
+      display: inline-block; }
+    nav ul li:hover, nav ul a.active {
+      background: #f5ab0b;
+      cursor: pointer; }
+    nav ul a.active, nav ul a.inactive {
       display: inline-block;
       line-height: 87px;
       padding: 10px 40px 0; }
-    nav ul li:hover {
-      background: #f5ab0b;
-      cursor: pointer; }
-    nav ul li:hover > .sub-nav {
+    nav ul a.active + .sub-nav {
       display: block; }
   nav .sub-nav {
     background: #363636;

@@ -47,16 +47,20 @@ nav {
 
     li {
       display: inline-block;
-      line-height: 87px;
-      padding: 10px 40px 0;
     }
 
-    li:hover {
+    li:hover, a.active {
       background: #f5ab0b;
       cursor: pointer;
     }
 
-    li:hover > .sub-nav {
+    a.active, a.inactive {
+      display: inline-block;
+      line-height: 87px;
+      padding: 10px 40px 0;
+    }
+
+    a.active + .sub-nav {
       display: block;
     }
   }
