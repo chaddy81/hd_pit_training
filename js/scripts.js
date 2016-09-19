@@ -18,7 +18,7 @@ let NavSubItem = React.createClass({
             }
 
             return (
-              <li><Link to={{ pathname: "/video", query: { chapter: chapter, title: title, video: video } }}>{this.props.sub.title} <img src={icon} /></Link></li>
+              <li><Link className="section-link" to={{ pathname: "/video", query: { chapter: chapter, title: title, video: video } }}>{this.props.sub.title} <img src={icon} /></Link></li>
             )
           }
 });
@@ -48,7 +48,6 @@ let NavItem = React.createClass({
   },
 
   render: function() {
-            console.log(this.props);
             let subs = [];
             this.props.page.sub.forEach(function(sub) {
               subs.push(<NavSubItem sub={sub} key={sub.title} />);
@@ -140,8 +139,6 @@ let Video = React.createClass({
       document.getElementById('alert').style.display = 'block';
       let chapter = this.props.location.query.chapter.toString();
 
-      console.log(chapter);
-
       if(localStorage.getItem('alreadyFinishedVideos')) {
         let alreadyFinishedVideos = localStorage.getItem('alreadyFinishedVideos').split(',');
         if (alreadyFinishedVideos.indexOf(chapter) == -1) {
@@ -189,6 +186,16 @@ let Video = React.createClass({
     }
   },
 
+  onOkClick: function() {
+    hashHistory.push(`/video${this.props.location.search}`);
+    document.getElementById('change-alert').style.display = 'none';
+    this.forceUpdate();
+  },
+  onCancelClick: function() {
+    document.getElementById('change-alert').style.display = 'none';
+    document.getElementById('video').play();
+  },
+
   getPos: function() {
     let video = document.getElementById('video');
     this.curPos = video.currentTime;
@@ -206,11 +213,30 @@ let Video = React.createClass({
   componentWillUnmount: function() {
     let video = document.getElementById('video');
     video.removeEventListener('ended', this.handleVideoEnded);
-    window.removeEventListener('click', this.handleClick);
+    document.removeEventListener('click', this.handleClick);
+  },
+
+  shouldComponentUpdate: function() {
+    if(localStorage.getItem('alreadyFinishedVideos') || localStorage.getItem('alreadyFinishedVideos') === null) {
+      let alreadyFinishedVideos = localStorage.getItem('alreadyFinishedVideos');
+
+      alreadyFinishedVideos = alreadyFinishedVideos.indexOf(',') > -1 ? alreadyFinishedVideos.split(',') : alreadyFinishedVideos;
+
+      console.log(alreadyFinishedVideos.indexOf(this.props.location.query.chapter.toString()));
+
+      if(alreadyFinishedVideos.indexOf(this.props.location.query.chapter.toString()) < 0) {
+        document.getElementById('video').pause();
+        document.getElementById('change-alert').style.display = 'block';
+        return false;
+      } else {
+        return true;
+      }
+    } else {
+      return false;
+    }
   },
 
   render: function() {
-    console.log(PAGES[0].sub.length);
     let chapter = this.props.location.query.chapter;
     let title = this.props.location.query.title;
     let video = this.props.location.query.video;
@@ -229,6 +255,12 @@ let Video = React.createClass({
             <p>Please click Next to go the next video or Menu to go back to the list of courses.</p>
             <button class="next">Next</button>
             <button class="menu">Menu</button>
+        </div>
+        <div class="alert" id="change-alert">
+            <img src="images/alert.png" />
+            <p>Are you sure you want to leave? If you leave now, your information may not be saved.</p>
+            <button class="ok" onClick={this.onOkClick}>Ok</button>
+            <button class="cancel" onClick={this.onCancelClick}>Cancel</button>
         </div>
       </div>
     )
