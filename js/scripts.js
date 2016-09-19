@@ -214,6 +214,8 @@ let Video = React.createClass({
     let video = document.getElementById('video');
     video.removeEventListener('ended', this.handleVideoEnded);
     document.removeEventListener('click', this.handleClick);
+    clearInterval(this.timer);
+    this.time = 0;
   },
 
   shouldComponentUpdate: function() {
