@@ -274,6 +274,8 @@ let App = React.createClass({
       if (alreadyFinishedVideos.length < 4) {
         objSCORM.setStatus('Not Evaluated');
       }
+    } else {
+      localStorage.setItem('alreadyFinishedVideos', null);
     }
   },
 
