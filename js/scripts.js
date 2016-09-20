@@ -173,8 +173,8 @@ let Video = React.createClass({
     }
 
     if(e.target.className == 'menu') {
-      hashHistory.push('/');
       document.getElementById('alert').style.display = 'none';
+      hashHistory.push('/');
     }
   },
 
